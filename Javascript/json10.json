@@ -1,0 +1,8 @@
+[
+  { "roll": 101, "name": "Riya Sharma", "course": "B.Tech CSE", "year": "2nd", "marks": 87 },
+  { "roll": 102, "name": "Aarav Mehta", "course": "BCA", "year": "1st", "marks": 78 },
+  { "roll": 103, "name": "Priya Nair", "course": "B.Sc IT", "year": "3rd", "marks": 92 },
+  { "roll": 104, "name": "Rahul Verma", "course": "B.Tech ECE", "year": "2nd", "marks": 81 },
+  { "roll": 105, "name": "Sneha Patil", "course": "BCA", "year": "3rd", "marks": 88 },
+  { "roll": 106, "name": "Manav Singh", "course": "B.Sc CS", "year": "1st", "marks": 79 }
+]

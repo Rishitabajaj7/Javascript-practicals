@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cafeteria Billing System</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #fff8f0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      background: #ff914d;
+      color: white;
+      padding: 18px;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .shop {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .item {
+      background: #fff;
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .item h3 {
+      margin: 5px 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .item p {
+      margin: 5px 0;
+      color: #ff914d;
+      font-weight: bold;
+    }
+    .item input {
+      width: 70px;
+      margin-top: 8px;
+      padding: 6px;
+      text-align: center;
+      border: 2px solid #ff914d;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .controls {
+      text-align: center;
+      margin: 25px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #ff914d;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #ff6600;
+    }
+    .result {
+      background: white;
+      max-width: 380px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .result h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .result p {
+      margin: 6px 0;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🍔 Cafeteria Billing System
+  </header>
+
+  <div class="shop">
+    <div class="item">
+      <img src="https://www.seriouseats.com/thmb/pUE9Dw4RjWKEG4JED7whaHoIzNg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250523-SEA-ThickandJuicyCheeseburgers-LorenaMasso-HERO-68563a45a4184a0e82c5a8b9f68a719d.jpg" alt="Burger">
+      <h3>Burger</h3>
+      <p>₹120</p>
+      <input type="number" id="burger" placeholder="Qty">
+    </div>
+    <div class="item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2J6FuGf0Lj3hNkU4aIHEXyks1l5dQ94kmZw&s" alt="Pizza">
+      <h3>Pizza</h3>
+      <p>₹300</p>
+      <input type="number" id="pizza" placeholder="Qty">
+    </div>
+    <div class="item">
+      <img src="image5(F).png" alt="Fries">
+      <h3>Fries</h3>
+      <p>₹80</p>
+      <input type="number" id="fries" placeholder="Qty">
+    </div>
+    <div class="item">
+      <img src="image5(CD).png" alt="Drink">
+      <h3>Cold Drink</h3>
+      <p>₹60</p>
+      <input type="number" id="drink" placeholder="Qty">
+    </div>
+  </div>
+
+  <div class="controls">
+    <button onclick="calculateBill()">Calculate Bill</button>
+  </div>
+
+  <div id="output" class="result">
+    <h3>Bill will be shown here</h3>
+  </div>
+
+  <script>
+    const prices = {
+      burger: 120,
+      pizza: 300,
+      fries: 80,
+      drink: 60
+    };
+
+    function calculateBill() {
+      let subtotal = 0;
+      let totalItems = 0;
+      let breakdown = [];
+
+      for (let item in prices) {
+        let qty = Number(document.getElementById(item).value) || 0;
+        if (qty > 0) {
+          let itemTotal = qty * prices[item];
+          subtotal += itemTotal;
+          totalItems += qty;
+          breakdown.push(`${item} x ${qty} = ₹${itemTotal}`);
+        }
+      }
+
+      let finalBill = subtotal;
+
+      document.getElementById("output").innerHTML = `
+        <h3>🧾 Bill Summary</h3>
+        <p><b>Total Items:</b> ${totalItems}</p>
+        <p><b>Subtotal:</b> ₹${subtotal}</p>
+        <p style="text-align:left; margin-top:10px"><b>Breakdown:</b><br>${breakdown.join("<br>")}</p>
+        <h3 style="color:green; margin-top:10px">Final Bill: ₹${finalBill}</h3>
+      `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Admission Form</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: url('https://m.media-amazon.com/images/I/71t2iMRG+rL._UF1000,1000_QL80_.jpg') 
+        no-repeat center center/cover;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px 40px;
+      border-radius: 12px;
+      width: 420px;
+      color: white;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffcc00;
+      font-size: 1.7rem; /* Increased font size */
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 6px;
+      font-weight: 600;
+      font-size: 1.05rem; /* Increased font size */
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem; /* Slightly larger */
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      margin-bottom: 8px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border: 2px solid #ffcc00;
+      background-color: #222;
+      color: white;
+    }
+
+    .radio-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+}
+.checkbox-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+
+    .checkbox-group label, .radio-group label {
+      margin-right: 15px;
+      font-size: 1rem;
+    }
+
+    .error {
+      color: #ff5555;
+      font-size: 0.95rem;
+      margin-top: -5px;
+      margin-bottom: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #ffcc00;
+      color: black;
+      font-weight: 700;
+      font-size: 1.05rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #ff9900;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Gym Admission Form 🏋️‍♂️</h2>
+    <form id="gymForm" onsubmit="return validateForm()">
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" onblur="validateName()">
+      <div id="nameError" class="error"></div>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" onblur="validateEmail()">
+      <div id="emailError" class="error"></div>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" placeholder="Enter your age" onchange="validateAge()">
+      <div id="ageError" class="error"></div>
+
+      <label for="address">Address</label>
+      <textarea id="address" rows="2" placeholder="Enter your address"></textarea>
+      <div id="addressError" class="error"></div>
+
+      <label>Preferred Workout Time</label>
+      <div class="radio-group">
+        <label><input type="radio" name="time" value="Morning"> Morning</label>
+        <label><input type="radio" name="time" value="Evening"> Evening</label>
+        <label><input type="radio" name="time" value="Night"> Night</label>
+      </div>
+      <div id="timeError" class="error"></div>
+
+      <label>Fitness Goals</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" value="Weight Loss"> Weight Loss</label>
+        <label><input type="checkbox" value="Muscle Gain"> Muscle Gain</label>
+        <label><input type="checkbox" value="Flexibility"> Flexibility</label>
+      </div>
+      <div id="goalError" class="error"></div>
+
+      <label>Payment Mode</label>
+      <select id="payment">
+        <option value="">-- Select Payment Mode --</option>
+        <option value="Cash">Cash</option>
+        <option value="Card">Card</option>
+        <option value="UPI">UPI</option>
+      </select>
+      <div id="paymentError" class="error"></div>
+
+      <label><input type="checkbox" id="terms"> I agree to the Terms & Conditions</label>
+      <div id="termsError" class="error"></div>
+
+      <button type="submit">Submit Form</button>
+    </form>
+  </div>
+
+  <script>
+    function validateName() {
+      const name = document.getElementById("name").value.trim();
+      const nameError = document.getElementById("nameError");
+      nameError.textContent = name === "" ? "Name is required!" : "";
+      return name !== "";
+    }
+
+    function validateEmail() {
+      const email = document.getElementById("email").value.trim();
+      const emailError = document.getElementById("emailError");
+      const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      emailError.textContent = !pattern.test(email) ? "Enter a valid email!" : "";
+      return pattern.test(email);
+    }
+
+    function validateAge() {
+      const age = document.getElementById("age").value;
+      const ageError = document.getElementById("ageError");
+      ageError.textContent = age < 16 || age > 70 ? "Age must be between 16 and 70!" : "";
+      return !(age < 16 || age > 70);
+    }
+
+    function validateForm() {
+      let valid = true;
+
+      if (!validateName()) valid = false;
+      if (!validateEmail()) valid = false;
+      if (!validateAge()) valid = false;
+
+      const address = document.getElementById("address").value.trim();
+      const addressError = document.getElementById("addressError");
+      addressError.textContent = address === "" ? "Address is required!" : "";
+      if (address === "") valid = false;
+
+      const timeSelected = document.querySelector('input[name="time"]:checked');
+      const timeError = document.getElementById("timeError");
+      timeError.textContent = !timeSelected ? "Select a workout time!" : "";
+      if (!timeSelected) valid = false;
+
+      const goals = document.querySelectorAll('.checkbox-group input:checked');
+      const goalError = document.getElementById("goalError");
+      goalError.textContent = goals.length === 0 ? "Select at least one fitness goal!" : "";
+      if (goals.length === 0) valid = false;
+
+      const payment = document.getElementById("payment").value;
+      const paymentError = document.getElementById("paymentError");
+      paymentError.textContent = payment === "" ? "Select a payment mode!" : "";
+      if (payment === "") valid = false;
+
+      const terms = document.getElementById("terms").checked;
+      const termsError = document.getElementById("termsError");
+      termsError.textContent = !terms ? "You must agree to the terms!" : "";
+      if (!terms) valid = false;
+
+      if (valid) alert("Form submitted successfully!");
+      return valid;
+    }
+  </script>
+</body>
+</html>

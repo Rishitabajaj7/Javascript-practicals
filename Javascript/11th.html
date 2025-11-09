@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSE Class Scheduler | Timer & Alerts</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+    color: #333;
+    text-align: center;
+    padding: 30px;
+  }
+
+  h1 {
+    color: #01579b;
+    font-size: 2rem;
+  }
+
+  #timer {
+    font-size: 2rem;
+    margin: 15px 0;
+    color: #e53935;
+    font-weight: 600;
+  }
+
+  table {
+    width: 75%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  th {
+    background-color: #0288d1;
+    color: white;
+  }
+
+  tr.active {
+    background-color: #43a047;
+    color: white;
+    font-weight: 600;
+  }
+
+  tr.upcoming {
+    background-color: #f9f9f9;
+  }
+
+  #nextClass {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #01579b;
+  }
+
+  button {
+    margin-top: 25px;
+    background-color: #0288d1;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #0277bd;
+  }
+</style>
+</head>
+<body>
+
+<h1>💻 CSE Class Scheduler</h1>
+<div id="timer">--:--:--</div>
+
+<table id="scheduleTable">
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-start="09:00" data-end="09:50"><td>Data Structures</td><td>09:00 AM</td><td>09:50 AM</td></tr>
+    <tr data-start="10:00" data-end="10:50"><td>Computer Networks</td><td>10:00 AM</td><td>10:50 AM</td></tr>
+    <tr data-start="11:00" data-end="11:50"><td>Operating Systems</td><td>11:00 AM</td><td>11:50 AM</td></tr>
+    <tr data-start="12:00" data-end="12:50"><td>Database Management</td><td>12:00 PM</td><td>12:50 PM</td></tr>
+    <tr data-start="14:00" data-end="14:50"><td>Web Development Lab</td><td>02:00 PM</td><td>02:50 PM</td></tr>
+  </tbody>
+</table>
+
+<div id="nextClass">Next class: --</div>
+
+<button onclick="startScheduler()">Start Scheduler</button>
+
+<script>
+function startScheduler() {
+  updateSchedule(); // Run immediately once
+  setInterval(updateSchedule, 1000); // Update every second
+}
+
+function updateSchedule() {
+  const now = new Date();
+  const currentTime = now.toTimeString().slice(0, 5); // HH:MM format
+  const rows = document.querySelectorAll("#scheduleTable tbody tr");
+  let nextClass = "None";
+
+  rows.forEach(row => {
+    const start = row.dataset.start;
+    const end = row.dataset.end;
+    row.classList.remove("active");
+
+    // Highlight active class
+    if (currentTime >= start && currentTime < end) {
+      row.classList.add("active");
+      nextClass = "Ongoing: " + row.children[0].textContent;
+    } 
+    // Schedule upcoming class alert
+    else if (currentTime < start && nextClass === "None") {
+      nextClass = "Upcoming: " + row.children[0].textContent + " at " + start;
+
+      const startTime = new Date();
+      const [hr, min] = start.split(":");
+      startTime.setHours(hr, min, 0);
+
+      const timeUntilStart = startTime - now;
+      if (timeUntilStart > 0) {
+        setTimeout(() => {
+          alert("🔔 Class " + row.children[0].textContent + " is starting now!");
+        }, timeUntilStart);
+      }
+    }
+  });
+
+  document.getElementById("nextClass").innerText = nextClass;
+  updateClock();
+}
+
+// Update real-time clock
+function updateClock() {
+  const now = new Date();
+  const timeString = now.toLocaleTimeString();
+  document.getElementById("timer").textContent = timeString;
+}
+</script>
+
+</body>
+</html>

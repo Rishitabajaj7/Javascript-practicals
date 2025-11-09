@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Case Study – String Reverse & Vowel Counter</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb, #9fc0fc);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #fff;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      background: #fff;
+      width: 90%;
+      max-width: 600px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.2s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.02);
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 1em;
+      margin-bottom: 15px;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #a18cd1;
+      outline: none;
+    }
+
+    button {
+      background: #a18cd1;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #664bb7;
+    }
+
+    .result {
+      background: #f8f8ff;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-weight: 500;
+      margin-top: 10px;
+      border: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1>💻 Practical 6 Case Study</h1>
+
+  <!-- Reverse String Section -->
+  <div class="container">
+    <h2>1️⃣ Reverse a String</h2>
+    <label for="reverseInput">Enter a string:</label>
+    <input type="text" id="reverseInput" placeholder="Type something...">
+    <button onclick="reverseString()">Reverse</button>
+    <div id="reverseResult" class="result"></div>
+  </div>
+
+  <!-- Count Vowels Section -->
+  <div class="container">
+    <h2>2️⃣ Count Vowels in a Paragraph</h2>
+    <label for="paragraphInput">Enter your paragraph:</label>
+    <textarea id="paragraphInput" rows="5" placeholder="Type your paragraph here..."></textarea>
+    <button onclick="countVowels()">Count Vowels</button>
+    <div id="vowelResult" class="result"></div>
+  </div>
+
+  <script>
+    // Function to reverse a string
+    function reverseString() {
+      const input = document.getElementById("reverseInput").value.trim();
+      if (input === "") {
+        document.getElementById("reverseResult").innerHTML = "⚠️ Please enter some text!";
+        return;
+      }
+      const reversed = input.split("").reverse().join("");
+      document.getElementById("reverseResult").innerHTML = `🔁 Reversed String: <b>${reversed}</b>`;
+    }
+
+    // Function to count vowels in a paragraph
+    function countVowels() {
+      const text = document.getElementById("paragraphInput").value.toLowerCase();
+      if (text.trim() === "") {
+        document.getElementById("vowelResult").innerHTML = "⚠️ Please enter a paragraph!";
+        return;
+      }
+
+      const vowels = text.match(/[aeiou]/g);
+      const count = vowels ? vowels.length : 0;
+      document.getElementById("vowelResult").innerHTML = `🗣️ Number of vowels: <b>${count}</b>`;
+    }
+  </script>
+</body>
+</html>

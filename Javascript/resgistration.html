@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    .main-cont {
+      width: 600px;
+      margin: 40px auto;
+      background: #f19696;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-spacing: 10px;
+    }
+    label {
+      font-weight: bold;
+      color: #444;
+    }
+    input, select, textarea {
+      width: 95%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 15px;
+    }
+    input[type="radio"], 
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 6px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    textarea {
+      resize: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-cont">
+    <header>Student Registration Form</header>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <table>
+        <tr>
+          <td><label for="rollno">Roll no. :</label></td>
+          <td><input type="text" id="rollno" name="rollno" required></td>
+        </tr>
+
+        <tr>
+          <td><label for="fname">Student name :</label></td>
+          <td>
+            <input type="text" id="fname" name="fname" placeholder="First Name" required>
+            <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="father">Father's name :</label></td>
+          <td><input type="text" id="father" name="father" required></td>
+        </tr>
+
+        <tr>
+          <td><label>Date of birth :</label></td>
+          <td>
+            <input type="text" placeholder="Day" id="day" required> -
+            <input type="text" placeholder="Month" id="month" required> -
+            <input type="text" placeholder="Year" id="year" required>
+            (DD-MM-YYYY)
+          </td>
+        </tr>
+
+        <tr>
+          <td><label>Mobile no. :</label></td>
+          <td>
+            <select id="countryCode">
+              <option value="+91">+91</option>
+            </select>
+            <input type="tel" id="mobile" name="mobile" maxlength="10" required>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="email">Email id :</label></td>
+          <td><input type="email" id="email" name="email" required></td>
+        </tr>
+
+        <tr>
+          <td><label for="password">Password :</label></td>
+          <td><input type="password" id="password" name="password" required></td>
+        </tr>
+
+        <tr>
+          <td><label>Gender :</label></td>
+          <td>
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female"> Female
+          </td>
+        </tr>
+
+        <tr>
+          <td><label>Department :</label></td>
+          <td>
+            <input type="checkbox" value="CSE"> CSE
+            <input type="checkbox" value="IT"> IT
+            <input type="checkbox" value="ECE"> ECE
+            <input type="checkbox" value="Civil"> Civil
+            <input type="checkbox" value="Mech"> Mech
+          </td>
+        </tr>
+
+        <tr>
+          <td><label>Course :</label></td>
+          <td>
+            <select required>
+              <option value="">Select Current Courses</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="BCA">BCA</option>
+              <option value="MCA">MCA</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="photo">Student photo :</label></td>
+          <td><input type="file" id="photo" name="photo"></td>
+        </tr>
+
+        <tr>
+          <td><label for="city">City :</label></td>
+          <td><input type="text" id="city" name="city" required></td>
+        </tr>
+
+        <tr>
+          <td><label for="address">Address :</label></td>
+          <td><textarea id="address" name="address" rows="3" required></textarea></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td><button type="submit">Submit</button></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
