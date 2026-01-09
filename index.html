@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PosterCraft | Design. Create. Inspire.</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, #0a0f1d, #111b2e, #152238);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 0 15px rgba(92, 225, 230, 0.2);
+    }
+
+    header h1 {
+      font-size: 1.7rem;
+      color: #5ce1e6;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #5ce1e6;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 130px 20px 100px;
+      background: linear-gradient(180deg, rgba(10,15,30,0.85), rgba(20,25,40,0.9)),
+        url('https://cdn.pixabay.com/photo/2016/11/29/02/12/abstract-1867838_1280.jpg') center/cover;
+      background-attachment: fixed;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      color: #5ce1e6;
+      text-shadow: 0 0 25px rgba(92, 225, 230, 0.6);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 700px;
+      margin: 20px auto 30px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #6c63ff, #5ce1e6);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 600;
+      padding: 14px 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 25px rgba(92, 225, 230, 0.3);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(92, 225, 230, 0.6);
+    }
+
+    /* Features */
+    .features {
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(15,20,30,0.8), rgba(10,15,25,0.9));
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 40px 25px;
+      transition: 0.3s;
+      box-shadow: 0 0 25px rgba(108, 99, 255, 0.2);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 30px rgba(92, 225, 230, 0.6);
+    }
+
+    .feature-card h3 {
+      color: #5ce1e6;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      color: #ddd;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: #aaa;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 15px rgba(92, 225, 230, 0.1);
+    }
+
+    footer a {
+      color: #5ce1e6;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>🎨 PosterCraft</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="designer.html">Designer</a>
+      <a href="services.html">Services</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Design. Create. Inspire.</h2>
+    <p>Unleash your creativity — craft posters, flyers, and banners effortlessly with our intuitive design tools and pre-built templates.</p>
+    <button class="btn" onclick="window.location.href='designer.html'">Start Designing</button>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="feature-card">
+      <h3>🎨 Easy to Use</h3>
+      <p>Simple drag-and-drop tools for effortless design creation — no prior experience needed.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🌈 Ready Templates</h3>
+      <p>Choose from hundreds of beautiful templates for every event, business, or occasion.</p>
+    </div>
+    <div class="feature-card">
+      <h3>💾 Save & Share</h3>
+      <p>Save your projects instantly and share them online with one click.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 PosterCraft. All Rights Reserved. |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster Editor | PosterCraft</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle at top left, #0b1320, #111b2e, #152238);
+    color: #fff;
+    display: flex;
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 320px;
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  h2 {
+    color: #5ce1e6;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 12px;
+    background: linear-gradient(90deg, #6c63ff, #5ce1e6);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(92,225,230,0.7);
+  }
+
+  .canvas {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .poster {
+    width: 500px;
+    height: 700px;
+    background: #1e1f26;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(92,225,230,0.3);
+    padding: 20px;
+    transition: 0.3s;
+  }
+
+  .poster h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .poster p {
+    color: #ccc;
+    font-size: 1.1rem;
+  }
+</style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Customize Poster</h2>
+    <label>Title</label>
+    <input type="text" id="title" value="Your Event Title" oninput="updatePoster()">
+
+    <label>Description</label>
+    <textarea id="desc" rows="3" oninput="updatePoster()">Add your event details here...</textarea>
+
+    <label>Color Theme</label>
+    <input type="color" id="bgColor" value="#1e1f26" onchange="updatePoster()">
+
+    <button onclick="savePoster()">💾 Save Design</button>
+  </div>
+
+  <div class="canvas">
+    <div class="poster" id="poster">
+      <h1 id="posterTitle">Your Event Title</h1>
+      <p id="posterDesc">Add your event details here...</p>
+    </div>
+  </div>
+
+  <script>
+    function updatePoster() {
+      const title = document.getElementById("title").value;
+      const desc = document.getElementById("desc").value;
+      const color = document.getElementById("bgColor").value;
+
+      document.getElementById("posterTitle").textContent = title;
+      document.getElementById("posterDesc").textContent = desc;
+      document.getElementById("poster").style.background = color;
+    }
+
+    function savePoster() {
+      alert("✅ Design saved successfully (mock action).");
+    }
+  </script>
+</body>
+</html>

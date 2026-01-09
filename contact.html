@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — PosterCraft</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="brand">PosterCraft</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="designer.html" class="nav-link">Designer</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container contact-main">
+    <section class="card contact-grid">
+      <div>
+        <h2>Contact Support</h2>
+        <p>Have questions or feedback? Send us a quick message.</p>
+        <form id="contactForm">
+          <label>Name</label>
+          <input id="cname" required>
+          <label>Email</label>
+          <input id="cemail" type="email" required>
+          <label>Message</label>
+          <textarea id="cmsg" rows="6" required></textarea>
+          <div class="form-actions">
+            <button class="btn primary" type="submit">Send</button>
+            <button class="btn ghost" type="reset">Reset</button>
+          </div>
+          <p id="contactStatus" class="status"></p>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h3>Our Office</h3>
+        <p><strong>PosterCraft HQ</strong><br>Mumbai, India</p>
+        <p>Email: rishitabajaj@gamil.com</p>
+        <img src="contact-bg.jpg" alt="Contact" class="contact-img">
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    © 2025 PosterCraft
+  </footer>
+
+  <script>
+    document.getElementById('contactForm')?.addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('contactStatus').textContent = 'Thank you! We received your message (simulated).';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

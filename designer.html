@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designer | PosterCraft</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: radial-gradient(circle at top left, #0a0f1d, #111b2e, #152238);
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #5ce1e6;
+      box-shadow: 0 0 25px rgba(92,225,230,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 2rem;
+      color: #fff;
+      text-shadow: 0 0 20px #5ce1e6;
+    }
+
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .template-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(108, 99, 255, 0.2);
+      overflow: hidden;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .template-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 30px rgba(92,225,230,0.6);
+    }
+
+    .template-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .template-card h3 {
+      margin: 10px 0;
+      color: #fff;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #6c63ff, #5ce1e6);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 15px;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(108, 99, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <header>PosterCraft Designer</header>
+
+  <h2>Popular Templates</h2>
+
+  <div class="template-grid">
+    <div class="template-card">
+      <img src="event.jpg" alt="Event Celebration">
+      <h3>Event Celebration</h3>
+      <button class="btn" onclick="window.location.href='editor.html?template=event'">Use Template</button>
+    </div>
+    <div class="template-card">
+      <img src="business.jpg" alt="Business Promo">
+      <h3>Business Promo</h3>
+      <button class="btn" onclick="window.location.href='editor.html?template=business'">Use Template</button>
+    </div>
+    <div class="template-card">
+      <img src="music.jpg" alt="Music Night">
+      <h3>Music Night</h3>
+      <button class="btn" onclick="window.location.href='editor.html?template=music'">Use Template</button>
+    </div>
+    <div class="template-card">
+      <img src="travel.jpg" alt="Travel Adventure">
+      <h3>Travel Adventure</h3>
+      <button class="btn" onclick="window.location.href='editor.html?template=travel'">Use Template</button>
+    </div>
+    <div class="template-card">
+      <img src="birthday.jpg" alt="Birthday Bash">
+      <h3>Birthday Bash</h3>
+      <button class="btn" onclick="window.location.href='editor.html?template=birthday'">Use Template</button>
+    </div>
+  </div>
+</body>
+</html>

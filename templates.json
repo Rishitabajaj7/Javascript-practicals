@@ -1,0 +1,52 @@
+[
+  {
+    "id": "event",
+    "name": "Event Celebration",
+    "title": "Annual Fest 2025",
+    "subtitle": "Join the biggest college event of the year",
+    "body": "Music, Dance, Food & More. Entry Free. Don’t miss it!",
+    "color": "#ff7a59",
+    "titleSize": 48,
+    "sample": "event.jpg"
+  },
+  {
+    "id": "business",
+    "name": "Business Promo",
+    "title": "Startup Launch Day",
+    "subtitle": "Empowering Innovation",
+    "body": "Join us for the grand launch of our next-gen tech startup at TechHub Mumbai.",
+    "color": "#6c5ce7",
+    "titleSize": 46,
+    "sample": "business.jpg"
+  },
+  {
+    "id": "music",
+    "name": "Music Night",
+    "title": "Live Concert",
+    "subtitle": "Feel the Beat!",
+    "body": "Featuring local artists and DJs. Book your passes now!",
+    "color": "#ff4081",
+    "titleSize": 52,
+    "sample": "music.jpg"
+  },
+  {
+    "id": "travel",
+    "name": "Travel Adventure",
+    "title": "Explore the World",
+    "subtitle": "Your next journey begins here",
+    "body": "Discover stunning destinations and breathtaking experiences with us.",
+    "color": "#00b894",
+    "titleSize": 44,
+    "sample": "travel.jpg"
+  },
+  {
+    "id": "birthday",
+    "name": "Birthday Bash",
+    "title": "Happy Birthday Riya!",
+    "subtitle": "Join us for a fun-filled celebration",
+    "body": "Cake, Music, Friends & Fun — Don’t miss the party!",
+    "color": "#f368e0",
+    "titleSize": 50,
+    "sample": "birthday.jpg"
+  }
+]
